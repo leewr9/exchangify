@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Exchange{% endblock %}
+
+{% block content %}
+
+{% csrf_token %}
+<div class="search-content">
+    <input type="text" id="start-date"> </input>
+    <input type="text" id="end-date"> </input>
+</div>
+<div class="container">
+    <div class="main-content">
+        <div class="main-chart" id="main-chart"></div>
+        <div class="main-information" id="main-information">
+            <span>오늘의 환율</span>
+            <div id="information-today">
+            </div>
+            <span>가장 낮은 환율</span>
+            <div id="information-min-day">
+            </div>
+            <span>가장 높은 환율</span>
+            <div id="information-max-day">
+            </div>
+            <span>평균 환율</span>
+            <div>
+                <p id="information-avg-day"></p>
+            </div>
+        </div>
+    </div>
+    <div class="side-content" id="side-chart">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+<script>
+    const chartData = {{ chart_data|safe }};
+    const csrf_token = '{{ csrf_token }}';
+</script>
+{% load static %}
+<script src="{% static 'js/script.js' %}?v={{ timestamp }}"></script>
+<script src="{% static 'js/chart-script.js' %}?v={{ timestamp }}"></script>
+
+{% endblock %}
