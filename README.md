@@ -28,3 +28,19 @@ python manage.py runserver
 ```
 
 http://localhost:8000/
+
+## License
+
+This project uses the following open-source libraries:
+
+- **Chart.js**: A simple yet flexible JavaScript charting library.
+  - License: MIT License
+  - URL: https://github.com/chartjs/Chart.js
+
+- **flatpickr**: A lightweight, powerful datetime picker.
+  - License: MIT License
+  - URL: https://github.com/flatpickr/flatpickr
+
+- **jQuery**: A fast, small, and feature-rich JavaScript library.
+  - License: MIT License
+  - URL: https://github.com/jquery/jquery
