@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render
 from django.http import JsonResponse
 from datetime import datetime, timedelta
 from .models import Exchange
@@ -51,47 +51,37 @@ def update_chart_view(request):
 def get_chart_data(start_date, end_date, search_unit=None):
     try:
         exchanges = Exchange.objects.all()
-
         units = []
         for exc in exchanges:
             if exc.cur_unit in units:
                 continue
             units.append(exc.cur_unit)
-
         chart_data = []
-
         if search_unit:
-            ttb_datas, tts_datas, deal_bas_rs, cur_dates = [], [], [], []
-            for exc in Exchange.objects.filter(cur_unit=search_unit, cur_date__gte=start_date, cur_date__lte=end_date).order_by('cur_date'):
-                cur_nm_unit = f'{exc.cur_nm} ({exc.cur_unit})'
-                cur_unit = exc.cur_unit
-                cur_unit_num = exc.cur_unit.split('(')[1][:-1] if '(' in exc.cur_unit else 1
-                ttb_datas.append(exc.ttb)
-                tts_datas.append(exc.tts)
-                deal_bas_rs.append(exc.deal_bas_r)
-                cur_dates.append(str(exc.cur_date))
-            return get_data(cur_unit, cur_unit_num, cur_nm_unit, deal_bas_rs, cur_dates, ttb_datas, tts_datas)
-        
+            return get_unit_data(start_date, end_date, search_unit)
         for unit in units:
-            ttb_datas, tts_datas, deal_bas_rs, cur_dates = [], [], [], []
-
-            for exc in Exchange.objects.filter(cur_unit=unit, cur_date__gte=start_date, cur_date__lte=end_date).order_by('cur_date'):
-                cur_nm_unit = f'{exc.cur_nm} ({exc.cur_unit})'
-                cur_unit = exc.cur_unit
-                cur_unit_num = exc.cur_unit.split('(')[1][:-1] if '(' in exc.cur_unit else 1
-                ttb_datas.append(exc.ttb)
-                tts_datas.append(exc.tts)
-                deal_bas_rs.append(exc.deal_bas_r)
-                cur_dates.append(str(exc.cur_date))
-
-            if '한국' not in cur_nm_unit:
-                chart_data.append(get_data(cur_unit, cur_unit_num, cur_nm_unit, deal_bas_rs, cur_dates, ttb_datas, tts_datas))
-
+            unit_data = get_unit_data(start_date, end_date, unit)
+            if unit_data:
+                chart_data.append(unit_data)
         return chart_data
     except Exception as e:
         print(e)
     
     return []
+
+def get_unit_data(start_date, end_date, search_unit):
+    ttb_datas, tts_datas, deal_bas_rs, cur_dates = [], [], [], []
+    for exc in Exchange.objects.filter(cur_unit=search_unit, cur_date__gte=start_date, cur_date__lte=end_date).order_by('cur_date'):
+        cur_nm_unit = f'{exc.cur_nm} ({exc.cur_unit})'
+        cur_unit = exc.cur_unit
+        cur_unit_num = exc.cur_unit.split('(')[1][:-1] if '(' in exc.cur_unit else 1
+        ttb_datas.append(exc.ttb)
+        tts_datas.append(exc.tts)
+        deal_bas_rs.append(exc.deal_bas_r)
+        cur_dates.append(str(exc.cur_date))
+    if '한국' in cur_nm_unit:
+        return None
+    return get_data(cur_unit, cur_unit_num, cur_nm_unit, deal_bas_rs, cur_dates, ttb_datas, tts_datas)
 
 def get_data(cur_unit, cur_unit_num, cur_nm_unit, deal_bas_rs, cur_dates, ttb_datas, tts_datas):
     max_deal_bas_r, max_cur_date = max(zip(deal_bas_rs, cur_dates))

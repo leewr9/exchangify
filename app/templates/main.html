@@ -5,9 +5,6 @@
 {% block content %}
 
 {% csrf_token %}
-<div class="search-content">
-    <input type="text" id="search-data"> </input>
-</div>
 <div class="container">
     <div class="main-content">
         <div class="main-information" id="main-information">
@@ -23,7 +20,7 @@
                     <select aria-label="calc-select-bottom" id="calc-select-bottom">
                         <option>한국 원 (KRW)</option>
                     </select>
-                    <input type="text" aria-label="calc-text-bottom" id="calc-text-bottom"/>
+                    <input type="text" aria-label="calc-text-bottom" id="calc-text-bottom" readonly/>
                 </span>
             </div>
         </div>
