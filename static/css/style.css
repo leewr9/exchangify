@@ -64,6 +64,10 @@ main {
     font-size: 15px;
 }
 
+#search-data {
+    width: 300px;
+}
+
 .main-content {
     display: flex;
     flex: 1;
@@ -74,13 +78,14 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
 .main-chart {
     flex: 1;
     width: 100%;
     padding-top: 30px;
     padding-bottom: 100px;
     padding-right: 20px;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .main-chart p {
@@ -94,11 +99,37 @@ main {
     border-bottom: 1px solid gainsboro;
 }
 
+
+.today-chart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    width: 100%;
+    margin: 15px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
+
+.today-chart div {
+    width: 30%;
+    min-width: 300px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.today-chart div:hover {
+    background-color: #e0e0e0;
+}
+
 .main-information {
     overflow-y: auto;
     overflow-x: hidden; 
     width: 20%;
-    min-width: 200px;
+    min-width: 300px;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -123,6 +154,19 @@ main {
     border-top: 1px solid gainsboro;
 }
 
+.main-information h1 {
+    margin-bottom: 10px;
+    color: gray;
+}
+
+.main-information input, select {
+    width: 100%;
+    height: 35px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border: 1px solid gainsboro;
+    text-align: center;
+}
 
 .side-content {
     overflow-y: auto;
@@ -171,7 +215,7 @@ main {
 
     .search-content {
         text-align: center;
-        padding-right: 0%;
+        padding: 0%;
     }
 
     .main-content {
@@ -201,5 +245,15 @@ main {
     .side-content {
         overflow: visible;
         width: 90%;
+    }
+    .today-chart {
+        padding: 0px;
+        margin: 0px;
+        margin-top: 15px;
+    }
+
+    .today-chart div {
+        width: 100%;
+        margin: 10px;
     }
 }
