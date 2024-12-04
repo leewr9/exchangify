@@ -1,7 +1,10 @@
 # site.exchangify
 Currency exchange rate lookup site based on Korean standards
 
-![](exchangify.png)
+* Main Page
+![](main.png)
+* Detail Page
+![](detail.png)
 
 ## install a Python module
 ```bash
