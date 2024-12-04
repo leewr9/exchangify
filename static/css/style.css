@@ -116,13 +116,14 @@ main {
     height: 200px;
     margin: 10px;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid gainsboro;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     overflow: hidden;
 }
 
 .today-chart div:hover {
-    background-color: #e0e0e0;
+    background-color: gainsboro;
 }
 
 .main-information {
@@ -207,6 +208,11 @@ main {
 }
 
 @media (max-width: 800px) {
+    header {
+        justify-content: center;
+        font-size: 15px;
+    }
+
     .container {
         flex-direction: column;
         align-items: center;
