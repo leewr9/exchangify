@@ -64,6 +64,17 @@ main {
     font-size: 15px;
 }
 
+.search-content button {
+    border: 1px solid gainsboro;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    text-align: center;
+    background-color: white;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
 #search-data {
     width: 300px;
 }
@@ -222,6 +233,10 @@ main {
     .search-content {
         text-align: center;
         padding: 0%;
+    }
+
+    .search-content button {
+        margin-bottom: 5px;
     }
 
     .main-content {
