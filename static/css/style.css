@@ -39,6 +39,11 @@ footer {
     text-align: center;
 }
 
+footer a {
+    text-decoration: none;
+    color: inherit;       
+}
+
 main {
     flex: 1;
     margin-top: 100px;
