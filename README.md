@@ -16,13 +16,13 @@ pip install -r requirements.txt
 python manage.py makemigrations # Create a database model
 python manage.py migrate # Create a database model
 
-python manage.py crawling # Collect data from three months ago based on today
+python manage.py crawling # Collect data from one years ago based on today
 # app/management/commands/crawling.py
 ```
 
 ### if there is no API key for the Korea Eximbank?
 ```bash
-python manage.py loaddata data.json # 20240601 - 20241203
+python manage.py loaddata data.json # 20241205 - 20241205
 ```
 
 ## Start the server
