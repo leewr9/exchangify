@@ -1,40 +1,38 @@
 {% extends 'base.html' %}
 
-{% block title %}Exchange{% endblock %}
+{% block title %}Exchangify{% endblock %}
 
 {% block content %}
 
 {% csrf_token %}
 <div class="container">
-    <div class="main-content">
-        <div class="main-information" id="main-information">
-            <span>환율 계산기</span>
-            <div id="information-calc">
-                <span>
-                    <select aria-label="calc-select-top" id="calc-select-top">
-                    </select>
-                    <input type="text" aria-label="calc-text-top" id="calc-text-top"/>
-                </span>
-                <h1 id="calc-unit">=</h1>
-                <span>
-                    <select aria-label="calc-select-bottom" id="calc-select-bottom">
+    <div class="content">
+        <div class="exchange-info" id="exchange-info">
+            <h2>환율 계산기</h2>
+            <div class="calculator" id="calculator">
+                <div class="calculator-row">
+                    <select aria-label="currency-from" id="currency-from"></select>
+                    <input type="text" aria-label="amount-from" id="amount-from"/>
+                </div>
+                <div class="calculator-equals" id="calculator-equals">=</div>
+                <div class="calculator-row">
+                    <select aria-label="currency-to" id="currency-to">
                         <option>한국 원 (KRW)</option>
                     </select>
-                    <input type="text" aria-label="calc-text-bottom" id="calc-text-bottom" readonly/>
-                </span>
+                    <input type="text" aria-label="amount-to" id="amount-to" readonly/>
+                </div>
             </div>
         </div>
-            <div class="today-chart" id="today-chart">
-            </div>
+        <div class="exchange-chart" id="exchange-chart"></div>
     </div>
 </div>
 
 <script>
-    const chartData = {{ chart_data|safe }};
-    const csrf_token = '{{ csrf_token }}';
+    const exchangeData = {{ exchange_data|safe }};
+    const csrfToken = '{{ csrf_token }}';
 </script>
 {% load static %}
 <script src="{% static 'js/script.js' %}?v={{ timestamp }}"></script>
-<script src="{% static 'js/main-script.js' %}?v={{ timestamp }}"></script>
+<script src="{% static 'js/main.js' %}?v={{ timestamp }}"></script>
 
 {% endblock %}

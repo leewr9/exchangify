@@ -19,7 +19,7 @@ header {
     color: white;
     padding-left: 20px;
     display: flex;
-    align-items: center;    
+    align-items: center;
 }
 
 header h1 {
@@ -29,7 +29,7 @@ header h1 {
 
 header a {
     text-decoration: none;
-    color: inherit;       
+    color: inherit;
 }
 
 footer {
@@ -41,7 +41,7 @@ footer {
 
 footer a {
     text-decoration: none;
-    color: inherit;       
+    color: inherit;
 }
 
 main {
@@ -57,11 +57,11 @@ main {
     height: 75vh;
 }
 
-.search-content {
+.search-panel {
     padding-left: 20px;
 }
 
-.search-content input {
+.search-panel input {
     border: 1px solid gainsboro;
     width: 150px;
     height: 25px;
@@ -69,7 +69,7 @@ main {
     font-size: 15px;
 }
 
-.search-content button {
+.search-panel button {
     border: 1px solid gainsboro;
     width: 100px;
     height: 25px;
@@ -84,7 +84,7 @@ main {
     width: 300px;
 }
 
-.main-content {
+.content {
     display: flex;
     flex: 1;
     background-color: white;
@@ -94,39 +94,36 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-.main-chart {
+.chart {
     flex: 1;
     width: 100%;
     padding-top: 30px;
     padding-bottom: 100px;
     padding-right: 20px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
-.main-chart p {
+.chart p {
     font-size: 25px;
     font-weight: bold;
     width: 100%;
-    
     text-align: center;
     padding-bottom: 10px;
     margin-bottom: 20px;
     border-bottom: 1px solid gainsboro;
 }
 
-
-.today-chart {
+.exchange-chart {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; 
+    gap: 10px;
     width: 100%;
     margin: 15px;
     overflow-y: auto;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
-.today-chart div {
+.exchange-chart div {
     width: 30%;
     min-width: 300px;
     height: 200px;
@@ -138,13 +135,13 @@ main {
     overflow: hidden;
 }
 
-.today-chart div:hover {
+.exchange-chart div:hover {
     background-color: gainsboro;
 }
 
-.main-information {
+.exchange-info {
     overflow-y: auto;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     width: 20%;
     min-width: 300px;
     background-color: #ffffff;
@@ -156,13 +153,13 @@ main {
     gap: 15px;
 }
 
-.main-information span {
+.exchange-info span {
     font-size: 15px;
     font-weight: bold;
     width: 100%;
 }
 
-.main-information div {
+.exchange-info div {
     width: 100%;
     text-align: center;
     font-size: 15px;
@@ -171,12 +168,13 @@ main {
     border-top: 1px solid gainsboro;
 }
 
-.main-information h1 {
+.exchange-info h1 {
     margin-bottom: 10px;
     color: gray;
 }
 
-.main-information input, select {
+.exchange-info input,
+select {
     width: 100%;
     height: 35px;
     font-size: 15px;
@@ -185,9 +183,9 @@ main {
     text-align: center;
 }
 
-.side-content {
+.content-side {
     overflow-y: auto;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     width: 20%;
     min-width: 300px;
     background-color: #ffffff;
@@ -200,18 +198,17 @@ main {
     gap: 15px;
 }
 
-.side-content p {
+.content-side p {
     font-size: 15px;
     font-weight: bold;
     width: 100%;
-    
     text-align: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
     border-bottom: 1px solid gainsboro;
 }
 
-.side-content div {
+.content-side div {
     background-color: #f1f1f1;
     padding: 15px;
     border-radius: 10px;
@@ -219,7 +216,7 @@ main {
     cursor: pointer;
 }
 
-.side-content div:hover {
+.content-side div:hover {
     background-color: #e0e0e0;
 }
 
@@ -235,50 +232,51 @@ main {
         height: auto;
     }
 
-    .search-content {
+    .search-panel {
         text-align: center;
         padding: 0%;
     }
 
-    .search-content button {
+    .search-panel button {
         margin-bottom: 5px;
     }
 
-    .main-content {
+    .content {
         width: 90%;
         min-height: 500px;
         flex-direction: column;
     }
 
-    .main-chart {
+    .chart {
         max-height: 350px;
         padding-top: 25px;
         padding-bottom: 75px;
         padding-right: 0px;
     }
 
-    .main-information {
+    .exchange-info {
         width: 100%;
         min-height: 100px;
         height: auto;
         padding: 15px;
     }
 
-    .main-content p {
+    .content p {
         font-size: 15px;
     }
 
-    .side-content {
+    .content-side {
         overflow: visible;
         width: 90%;
     }
-    .today-chart {
+
+    .exchange-chart {
         padding: 0px;
         margin: 0px;
         margin-top: 15px;
     }
 
-    .today-chart div {
+    .exchange-chart div {
         width: 100%;
         margin: 10px;
     }

@@ -22,7 +22,7 @@ python manage.py crawling # Collect data from one years ago based on today
 
 ### if there is no API key for the Korea Eximbank?
 ```bash
-python manage.py loaddata data.json # 20241205 - 20241205
+python manage.py loaddata data.json # 20231204 - 20241205
 ```
 
 ## Start the server
