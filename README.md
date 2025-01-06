@@ -1,40 +1,61 @@
 # site.exchangify
-Currency exchange rate lookup site based on Korean standards
 
-* Main Page
-![](main.png)
-* Detail Page
-![](detail.png)
+A web application that allows users to look up historical currency exchange rates. The site pulls data from the Korea Eximbank and stores it in the database for easy retrieval and display.
 
-## install a Python module
-```bash
-pip install -r requirements.txt
-```
+* **Main Page**  
+  ![](main.png)
+* **Detail Page**  
+  ![](detail.png)
 
-## insert data into the database
-```bash
-python manage.py makemigrations # Create a database model
-python manage.py migrate # Create a database model
+## Setup
 
-python manage.py crawling # Collect data from one years ago based on today
-# app/management/commands/crawling.py
-```
+1. Clone this repository to your local machine:
+   ```bash
+   git clone https://github.com/leewr9/site.exchangify.git
+   cd site.exchangify
+   ```
 
-### if there is no API key for the Korea Eximbank?
-```bash
-python manage.py loaddata data.json # 20231204 - 20241205
-```
+2. Install the required Python libraries:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Start the server
+## Database Setup
+
+1. Create the database models:
+   ```bash
+   python manage.py makemigrations  # Create migration files
+   python manage.py migrate  # Apply the migrations to the database
+   ```
+
+2. To collect data (historical exchange rates for the past year):
+   ```bash
+   python manage.py crawling  # Collect data from one year ago based on today
+   # app/management/commands/crawling.py
+   ```
+
+### What to do if you don't have an API key for Korea Eximbank?
+
+You can load data manually from a pre-existing file:
+   ```bash
+   python manage.py loaddata data.json  # Load exchange rate data for the period 2023-12-04 to 2024-12-05
+   ```
+
+## Start the Server
+
+To run the development server:
 ```bash
 python manage.py runserver
 ```
 
-http://localhost:8000/
+Visit the site at [http://localhost:8000/](http://localhost:8000/).
 
 ## License
 
-This project uses the following open-source libraries:
+### This project license:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Third-party libraries used in this project:
 
 - **Chart.js**: A simple yet flexible JavaScript charting library.
   - License: MIT License
