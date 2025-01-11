@@ -12,7 +12,6 @@ def get_date_range(days_ago=90):
     end_date = datetime.now()
     return start_date, end_date
 
-
 # Function to get chart data for the specified date range and optional search unit
 def fetch_chart_data(start_date, end_date, search_unit=None):
     try:
@@ -39,7 +38,6 @@ def fetch_chart_data(start_date, end_date, search_unit=None):
         print(f"Error fetching chart data: {e}")
     
     return []
-
 
 # Function to get data for a specific currency unit in the specified date range
 def fetch_unit_data(start_date, end_date, search_unit):
@@ -88,7 +86,6 @@ def fetch_unit_data(start_date, end_date, search_unit):
                         max_deal_bas_r=max_deal_bas_r, max_cur_date=max_cur_date, min_deal_bas_r=min_deal_bas_r,
                         min_cur_date=min_cur_date, avg_deal_bas_r=avg_deal_bas_r, today_deal_bas_r=today_deal_bas_r,
                         today_cur_date=today_cur_date)
-
 
 # Function to compile and return the data for a specific currency unit
 def compile_data(cur_unit, cur_unit_num, cur_nm_unit, deal_bas_rs, cur_dates, ttb_datas, tts_datas,
