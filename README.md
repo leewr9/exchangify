@@ -1,4 +1,4 @@
-# site.exchangify
+# Exchangify
 
 A web application that allows users to look up historical currency exchange rates. The site pulls data from the Korea Eximbank and stores it in the database for easy retrieval and display.
 
