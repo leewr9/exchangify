@@ -19,9 +19,9 @@ A web application that allows users to look up historical currency exchange rate
     ```
 
 3. **Start the Local Server**
-```bash
-python manage.py runserver
-```
+    ```bash
+    python manage.py runserver
+    ```
 
 Visit the site at [http://localhost:8000/](http://localhost:8000/).
 
