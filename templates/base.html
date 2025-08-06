@@ -1,17 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-    
-    <title>{% block title %}환율{% endblock %}</title>
-    {% include "head.html" %}
-
-    <body>
-        {% include "header.html" %}
-
-        <main>
-            {% block content %}{% endblock %}
-        </main>
-
-        {% include "footer.html" %}
-    </body>
-    
+  <title>{% block title %}환율{% endblock %}</title>
+  {% include "head.html" %}
+  <body>
+    {% include "header.html" %}
+    <main>{% block content %}{% endblock %}</main>
+    {% include "footer.html" %}
+  </body>
 </html>

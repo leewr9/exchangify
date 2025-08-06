@@ -1,50 +1,46 @@
-{% extends 'base.html' %}
-
-{% block title %}Exchange{% endblock %}
-
-{% block content %}
-
-{% csrf_token %}
+{% extends 'base.html' %} {% block title %}Exchange{% endblock %} {% block
+content %} {% csrf_token %}
 <div class="search-panel">
-    <input type="text" id="start-date" placeholder="시작 날짜"/> - <input type="text" id="end-date" placeholder="종료 날짜"/>
-    <button id="btn-one-month">1개월</button>
-    <button id="btn-three-months">3개월</button>
-    <button id="btn-six-months">6개월</button>
-    <button id="btn-one-year">1년</button>
+  <input type="text" id="start-date" placeholder="시작 날짜" /> -
+  <input type="text" id="end-date" placeholder="종료 날짜" />
+  <button id="btn-one-month">1개월</button>
+  <button id="btn-three-months">3개월</button>
+  <button id="btn-six-months">6개월</button>
+  <button id="btn-one-year">1년</button>
 </div>
 
 <div class="container">
-    <div class="content">
-        <div class="chart" id="main-chart"></div>
-        <div class="exchange-info" id="exchange-info">
-            <div class="info-section">
-                <h3>오늘의 환율</h3>
-                <div id="rate-today"></div>
-            </div>
-            <div class="info-section">
-                <h3>가장 낮은 환율</h3>
-                <div id="rate-min"></div>
-            </div>
-            <div class="info-section">
-                <h3>가장 높은 환율</h3>
-                <div id="rate-max"></div>
-            </div>
-            <div class="info-section">
-                <h3>평균 환율</h3>
-                <p id="rate-avg"></p>
-            </div>
-        </div>
+  <div class="content">
+    <div class="chart" id="main-chart"></div>
+    <div class="exchange-info" id="exchange-info">
+      <div class="info-section">
+        <h3>오늘의 환율</h3>
+        <div id="rate-today"></div>
+      </div>
+      <div class="info-section">
+        <h3>가장 낮은 환율</h3>
+        <div id="rate-min"></div>
+      </div>
+      <div class="info-section">
+        <h3>가장 높은 환율</h3>
+        <div id="rate-max"></div>
+      </div>
+      <div class="info-section">
+        <h3>평균 환율</h3>
+        <p id="rate-avg"></p>
+      </div>
     </div>
-    <div class="content-side" id="side-chart"></div>
+  </div>
+  <div class="content-side" id="side-chart"></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
 <script>
-    const searchData = {{ search_data|safe }};
-    const exchangeData = {{ exchange_data|safe }};
-    const currentUnit = '{{ current_unit|safe }}';
-    const csrfToken = '{{ csrf_token }}';
+  const searchData = {{ search_data|safe }};
+  const exchangeData = {{ exchange_data|safe }};
+  const currentUnit = '{{ current_unit|safe }}';
+  const csrfToken = '{{ csrf_token }}';
 </script>
 {% load static %}
 <script src="{% static 'js/update.js' %}?v={{ timestamp }}"></script>

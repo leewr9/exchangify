@@ -7,33 +7,45 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0002_alter_exchange_cur_date_alter_exchange_cur_nm_and_more'),
+        ("app", "0002_alter_exchange_cur_date_alter_exchange_cur_nm_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='exchange',
-            name='cur_date',
-            field=models.DateField(auto_now_add=True, verbose_name='날짜'),
+            model_name="exchange",
+            name="cur_date",
+            field=models.DateField(auto_now_add=True, verbose_name="날짜"),
         ),
         migrations.AlterField(
-            model_name='exchange',
-            name='cur_unit',
-            field=models.CharField(max_length=10, verbose_name='화폐 단위'),
+            model_name="exchange",
+            name="cur_unit",
+            field=models.CharField(max_length=10, verbose_name="화폐 단위"),
         ),
         migrations.AlterField(
-            model_name='exchange',
-            name='deal_bas_r',
-            field=models.DecimalField(decimal_places=4, max_digits=10, verbose_name='현재 환율'),
+            model_name="exchange",
+            name="deal_bas_r",
+            field=models.DecimalField(
+                decimal_places=4, max_digits=10, verbose_name="현재 환율"
+            ),
         ),
         migrations.AlterField(
-            model_name='exchange',
-            name='ttb',
-            field=models.DecimalField(decimal_places=4, default=Decimal('0.0'), max_digits=10, verbose_name='사실 때'),
+            model_name="exchange",
+            name="ttb",
+            field=models.DecimalField(
+                decimal_places=4,
+                default=Decimal("0.0"),
+                max_digits=10,
+                verbose_name="사실 때",
+            ),
         ),
         migrations.AlterField(
-            model_name='exchange',
-            name='tts',
-            field=models.DecimalField(decimal_places=4, default=Decimal('0.0'), max_digits=10, verbose_name='파실 때'),
+            model_name="exchange",
+            name="tts",
+            field=models.DecimalField(
+                decimal_places=4,
+                default=Decimal("0.0"),
+                max_digits=10,
+                verbose_name="파실 때",
+            ),
         ),
     ]

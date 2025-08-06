@@ -1,4 +1,4 @@
-window.onload = function() {
-    defineCalcDataContent(exchangeData)
-    displayTodayExchangeData(exchangeData)
+window.onload = function () {
+  defineCalcDataContent(exchangeData);
+  displayTodayExchangeData(exchangeData);
 };

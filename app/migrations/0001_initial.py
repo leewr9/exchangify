@@ -7,20 +7,27 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Exchange',
+            name="Exchange",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('cur_unit', models.CharField(max_length=10)),
-                ('ttb', models.FloatField(default=0.0)),
-                ('tts', models.FloatField(default=0.0)),
-                ('deal_bas_r', models.FloatField()),
-                ('cur_nm', models.CharField(max_length=100)),
-                ('cur_date', models.DateField(blank=True, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("cur_unit", models.CharField(max_length=10)),
+                ("ttb", models.FloatField(default=0.0)),
+                ("tts", models.FloatField(default=0.0)),
+                ("deal_bas_r", models.FloatField()),
+                ("cur_nm", models.CharField(max_length=100)),
+                ("cur_date", models.DateField(blank=True, null=True)),
             ],
         ),
     ]

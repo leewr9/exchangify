@@ -1,35 +1,30 @@
-{% extends 'base.html' %}
-
-{% block title %}Exchangify{% endblock %}
-
-{% block content %}
-
-{% csrf_token %}
+{% extends 'base.html' %} {% block title %}Exchangify{% endblock %} {% block
+content %} {% csrf_token %}
 <div class="container">
-    <div class="content">
-        <div class="exchange-info" id="exchange-info">
-            <h2>환율 계산기</h2>
-            <div class="calculator" id="calculator">
-                <div class="calculator-row">
-                    <select aria-label="currency-from" id="currency-from"></select>
-                    <input type="text" aria-label="amount-from" id="amount-from"/>
-                </div>
-                <div class="calculator-equals" id="calculator-equals">=</div>
-                <div class="calculator-row">
-                    <select aria-label="currency-to" id="currency-to">
-                        <option>한국 원 (KRW)</option>
-                    </select>
-                    <input type="text" aria-label="amount-to" id="amount-to" readonly/>
-                </div>
-            </div>
+  <div class="content">
+    <div class="exchange-info" id="exchange-info">
+      <h2>환율 계산기</h2>
+      <div class="calculator" id="calculator">
+        <div class="calculator-row">
+          <select aria-label="currency-from" id="currency-from"></select>
+          <input type="text" aria-label="amount-from" id="amount-from" />
         </div>
-        <div class="exchange-chart" id="exchange-chart"></div>
+        <div class="calculator-equals" id="calculator-equals">=</div>
+        <div class="calculator-row">
+          <select aria-label="currency-to" id="currency-to">
+            <option>한국 원 (KRW)</option>
+          </select>
+          <input type="text" aria-label="amount-to" id="amount-to" readonly />
+        </div>
+      </div>
     </div>
+    <div class="exchange-chart" id="exchange-chart"></div>
+  </div>
 </div>
 
 <script>
-    const exchangeData = {{ exchange_data|safe }};
-    const csrfToken = '{{ csrf_token }}';
+  const exchangeData = {{ exchange_data|safe }};
+  const csrfToken = '{{ csrf_token }}';
 </script>
 {% load static %}
 <script src="{% static 'js/script.js' %}?v={{ timestamp }}"></script>
